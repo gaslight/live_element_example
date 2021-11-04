@@ -1,0 +1,11 @@
+<ul>
+  <%= for %{item: item} <- @todo_items do %>
+    <li><%= item %></li>
+  <% end %>
+</ul>
+<form phx-submit="add_todo">
+  <label>To do:<input id="todo-input" name="todo" /></label>
+  <button id="add-item" type="submit">Add item</button>
+</form>
+
+<button phx-click="add_something">Add something</button>

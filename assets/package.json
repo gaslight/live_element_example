@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "live-element": "file:../../live-element"
+  }
+}
