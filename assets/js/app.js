@@ -24,4 +24,8 @@ import { LiveElement } from 'live-element';
 // Include phoenix_html to handle method=PUT/DELETE in forms and buttons.
 import "phoenix_html"
 
-window.customElements.define('todo-list', LiveElement);
+class TodoList extends LiveElement {
+  get url() { return this.getAttribute("url"); }
+  get module() { return this.getAttribute("module"); }
+}
+window.customElements.define('todo-list', TodoList);
