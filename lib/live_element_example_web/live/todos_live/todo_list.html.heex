@@ -1,5 +1,5 @@
 <ul>
-  <%= for %{item: item} <- @todo_items do %>
+  <%= for item <- @todo_items do %>
     <li><%= item %></li>
   <% end %>
 </ul>

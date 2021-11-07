@@ -6,21 +6,8 @@ defmodule LiveElementExampleWeb.TodosLive.TodoList do
      socket
      |> assign(
        foo: foo,
-       todo_items: [
-         %{item: "Put your left foot if", due_date: Date.utc_today()},
-         %{item: "Take your left foot out", due_date: Date.utc_today() |> Date.add(1)}
-       ]
+       todo_items: ["Put your left foot if", "Take your left foot out"]
      )}
-  end
-
-  def handle_event(
-        "add_todo",
-        %{"item" => item, "due_date" => due_date},
-        %{assigns: %{todo_items: todo_items}} = socket
-      ) do
-    {:noreply,
-     socket
-     |> assign(todo_items: todo_items ++ [%{item: item, due_date: Date.from_iso8601!(due_date)}])}
   end
 
   def handle_event(
@@ -30,7 +17,7 @@ defmodule LiveElementExampleWeb.TodosLive.TodoList do
       ) do
     {:noreply,
      socket
-     |> assign(todo_items: todo_items ++ [%{item: item, due_date: nil}])}
+     |> assign(todo_items: todo_items ++ [item])}
   end
 
   def handle_event(
@@ -42,5 +29,4 @@ defmodule LiveElementExampleWeb.TodosLive.TodoList do
      socket
      |> assign(todo_items: todo_items ++ [%{item: "something", due_date: nil}])}
   end
-
 end
