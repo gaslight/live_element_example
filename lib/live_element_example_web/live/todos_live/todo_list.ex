@@ -1,10 +1,11 @@
 defmodule LiveElementExampleWeb.TodosLive.TodoList do
   use LiveElement
 
-  def mount(_params, _session, socket) do
+  def mount(_params, %{"foo" => foo}, socket) do
     {:ok,
      socket
      |> assign(
+       foo: foo,
        todo_items: [
          %{item: "Put your left foot if", due_date: Date.utc_today()},
          %{item: "Take your left foot out", due_date: Date.utc_today() |> Date.add(1)}
@@ -42,15 +43,4 @@ defmodule LiveElementExampleWeb.TodosLive.TodoList do
      |> assign(todo_items: todo_items ++ [%{item: "something", due_date: nil}])}
   end
 
-  def build_events(events) do
-    events
-    |> Enum.map(fn %{item: item, due_date: due_date} -> %{title: item, start: due_date} end)
-    |> Jason.encode!()
-  end
-
-  # def render(assigns) do
-  #   ~H"""
-  #     <h1>hi!</h1>
-  #   """
-  # end
 end

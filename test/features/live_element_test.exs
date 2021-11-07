@@ -13,6 +13,7 @@ defmodule LiveElementExample.Features.TodoTest do
       |> fill_in(css("#todo-input"), with: "Shake it all about")
       |> click(css("#add-item"))
       |> assert_has(css("li", text: "Shake it all about"))
+      |> assert_has(css("#params", text: "bar"))
     end)
   end
 end

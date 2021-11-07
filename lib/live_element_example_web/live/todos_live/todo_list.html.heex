@@ -3,6 +3,7 @@
     <li><%= item %></li>
   <% end %>
 </ul>
+<div id="params"><%= @foo %></div>
 <form phx-submit="add_todo">
   <label>To do:<input id="todo-input" name="todo" /></label>
   <button id="add-item" type="submit">Add item</button>
